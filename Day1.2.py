@@ -11,8 +11,9 @@ with open(filepath) as fp:
         listlength += 1
     linelist.sort()
 
-    for x in range(0, listlength):
-        found = False
+    found = False
+    x = 0
+    while not found:
         x2 = x + 1
         x3 = x2 + 1
         num1 = linelist[x]
@@ -28,5 +29,4 @@ with open(filepath) as fp:
                 eleproduct = linelist[x] * linelist[x2] * linelist[x3]
                 found = True
                 print(eleproduct)
-        if found:
-            break
+        x += 1
