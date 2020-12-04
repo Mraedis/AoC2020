@@ -27,4 +27,3 @@ for y in range(0, len(treemap)):
 for x in range(1, int(math.floor(lines / stepy))):
     if treemapex[stepy * x][stepx * x] == '#':
         trees += 1
-
