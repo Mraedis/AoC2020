@@ -3,8 +3,8 @@ filepath = 'input5'
 
 def bin_to_dec(num):
     dec = 0
-    for x in num:
-        dec = dec * 2 + int(x)
+    for n in num:
+        dec = dec * 2 + int(n)
     return dec
 
 
