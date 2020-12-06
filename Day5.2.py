@@ -9,7 +9,6 @@ def bin_to_dec(num):
 
 
 seatlist = []
-
 with open(filepath) as fp:
     line = fp.readline()
     while line:
