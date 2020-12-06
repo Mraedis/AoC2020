@@ -1,4 +1,4 @@
-filepath = 'input2.1'
+filepath = 'input2'
 
 validpass = 0
 

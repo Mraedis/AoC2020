@@ -1,4 +1,4 @@
-filepath = 'input1.1'
+filepath = 'input1'
 som = 0
 
 with open(filepath) as fp:
