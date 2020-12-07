@@ -1,24 +1,6 @@
-filepath = 'input1'
-som = 0
+from itertools import combinations
+from math import prod
 
-with open(filepath) as fp:
-    line = fp.readline()
-    linelist = []
-    listlength = 0
-    while line:
-        linelist.append(int(line))
-        line = fp.readline()
-        listlength += 1
-    linelist.sort()
-
-    for x in range(0, listlength):
-        x2 = x + 1
-        num1 = linelist[x]
-        elesum = linelist[x] + linelist[x2]
-        while elesum < 2020:
-            x2 += 1
-            elesum = linelist[x] + linelist[x2]
-        if elesum == 2020:
-            eleproduct = linelist[x] * linelist[x2]
-            print(eleproduct)
-            break
+linelist = [int(val) for val in open('input1').readlines()]
+pair = [pair for pair in combinations(linelist, 2) if sum(pair) == 2020][0]
+print(prod(pair))
