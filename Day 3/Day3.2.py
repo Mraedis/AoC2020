@@ -5,7 +5,6 @@ multi = 1
 
 for stepx, stepy in steps:
     trees = 0
-    treemapex = []
 
     treemap = [[c for c in val.strip()] for val in open('input3').readlines()]
     linel = len(treemap[0])

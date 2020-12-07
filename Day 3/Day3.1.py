@@ -1,7 +1,6 @@
 import math
 
 trees = 0
-lines = 0
 stepx = 3
 stepy = 1
 
