@@ -1,13 +1,6 @@
-filepath = 'input2'
-
 validpass = 0
-
-with open(filepath) as fp:
-    line = fp.readline()
-    while line:
-        policy, passkey, password = line.split(' ')
-        lowpol, uppol = policy.split('-')
-        if (password[int(lowpol)-1] == passkey[0]) != (password[int(uppol)-1] == passkey[0]):
-            validpass += 1
-        line = fp.readline()
-    print(validpass)
+policylist = [val.strip().split(' ') for val in open('input2').readlines()]
+for policy in policylist:
+    low, high = [int(i) - 1 for i in policy[0].split('-')]
+    validpass += (policy[1][0] == policy[2][low]) != (policy[1][0] == policy[2][high])
+print(validpass)
