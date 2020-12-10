@@ -20,5 +20,5 @@ parsedpass = list(map(lambda x: json.loads(x), passlist))
 validpasses = 0
 
 for passport in parsedpass:
-    if len(passport.keys()) > 7 or (len(passport.keys()) > 6 and 'cid' not in passport):
-        validpasses += 1
+    validpasses += len(passport.keys()) > 7 or (len(passport.keys()) > 6 and 'cid' not in passport)
+print(validpasses)

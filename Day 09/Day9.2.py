@@ -1,6 +1,5 @@
-from itertools import combinations
-
 numlist = [int(num.strip()) for num in open('input9').readlines()]
+
 found = 0
 listlen = 2
 target = 15353384

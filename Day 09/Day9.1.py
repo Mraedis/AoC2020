@@ -8,8 +8,6 @@ while found == 0:
     pair = [pair for pair in combinations(numlist[index-25:index], 2) if sum(pair) == numlist[index]]
     if len(pair) >= 1:
         index += 1
-        print(pair)
     else:
-        print(index)
         found = numlist[index]
 print(found)
