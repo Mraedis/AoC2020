@@ -13,7 +13,7 @@ invalid = 0
 for ticket in ticketlist:
     for num in ticket:
         valid = 0
-        for field in fields.keys():
-            valid += (num <= fields[field][1] or fields[field][2] <= num <= fields[field][3])
+        for _, field in fields.items():
+            valid += num in range(field[0], field[1] + 1) or num in range(field[2], field[3] + 1)
         invalid += int(num) * (valid <= 0)
 print(invalid)

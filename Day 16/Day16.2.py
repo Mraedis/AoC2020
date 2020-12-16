@@ -17,7 +17,7 @@ for ticket in ticketlist:
     for num in ticket:
         valid = 0
         for _, field in fields.items():
-            valid += num in range(field[0], field[1]) or num in range(field[2], field[3])
+            valid += num in range(field[0], field[1]+1) or num in range(field[2], field[3]+1)
         invalid += num * (valid <= 0)
     if not invalid:
         newlist.append(ticket)
@@ -25,10 +25,29 @@ for ticket in ticketlist:
 rulelist = {}
 for num in range(len(myticket)):
     for name, field in fields.items():
-        valid = all(ticket[num] in range(field[0], field[1]) or ticket[num] in range(field[2], field[3])
+        valid = all(ticket[num] in range(field[0], field[1]+1) or ticket[num] in range(field[2], field[3]+1)
                     for ticket in newlist)
         if valid:
             if name in rulelist.keys():
                 rulelist[name].add(num)
             else:
                 rulelist[name] = {num}
+sieve = {}
+target = len(rulelist)
+while len(sieve) < target:
+    s = {}
+    for name, options in rulelist.items():
+        if len(options) == 1:
+            s[name] = options
+
+    for name, option in s.items():
+        sieve[name] = option
+        for n, o in rulelist.items():
+            rulelist[n] = rulelist[n] - option
+
+product = 1
+for s in sieve.keys():
+    if 'departure' in s:
+        for ts in sieve[s][0]:
+            product *= myticket[ts]
+print(product)
